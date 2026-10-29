@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+const path = require('path');
+
 // Cross API connection
 const cors = require('cors');
 app.use(cors())
@@ -27,9 +29,24 @@ app.get('/project', async (req, res) => {
   await client.connect();
   const data = await client.db(process.env.DB_NAME)
     .collection(process.env.DB_COLLECTION_P)
-    .findOne({id:Number(data_ID)})
+    .findOne({ id: Number(data_ID) })
   res.json(data)
 })
+
+
+// ONLY serve the static React build files if running in Production
+if (process.env.NODE_ENV === 'production') {
+const distPath = path.join(__dirname, 'Portfolio', 'dist');
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(distPath));
+
+  app.get('/{*splat}', (req, res) => {
+    res.sendFile(path.join(distPath, 'index.html'));
+  });
+}
+}
+
 
 
 
