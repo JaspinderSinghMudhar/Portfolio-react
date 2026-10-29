@@ -101,6 +101,15 @@ h6 {
  @apply text-white
 }
 
+.form-card{
+  background-color: transparent !important;
+  position: absolute;
+  width: 440px;
+  border-radius: 24px;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -110%);
+}
 
 
 /* Default Css */

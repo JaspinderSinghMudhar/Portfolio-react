@@ -1,284 +1,37 @@
 import InfiniteMenu from '../components/InfiniteMenu';
-import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const items_new = [{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb8130b"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/youtuber-merch-stores-design/",
-    "image": "/YouTuber-Merch-Stores-Design.png",
-    "title": "YouTuber Merch Stores Design",
-    "dis": "I built this complete YouTube merch store design specifically for the Figma community, and it's totally free to use! Packed with 13 customizable pages, this design keeps WooCommerce functionality in mind, making it a breeze to integrate into your online store.",
-    "tags_content_1": "Figma",
-    "tags_content_2": "Visit Demo Site - Not Responsive Yet",
-    "project_url": "https://www.figma.com/community/file/1358025552211221222",
-    "slug": "youtuber-merch-stores-design"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb8130c"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/portfolio-website-project/",
-    "image": "/Porfolio.png",
-    "title": "Portfolio Website Project",
-    "dis": "I've built a user-friendly, fully responsive portfolio website showcasing my skills. The clean layout seamlessly navigates across all devices, featuring dedicated sections like \"Home,\" \"Projects,\" \"About,\" and \"Contact Us.\" A creative 404 page ensures a smooth user experience even for unexpected clicks.",
-    "tags_content_1": "Figma",
-    "tags_content_2": "WordPress",
-    "tags_content_3": "API",
-    "tags_content_4": "Custom Post",
-    "project_url": "https://www.figma.com/community/file/1350063687525024507/portfolio-design-for-developer",
-    "slug": "portfolio-website-project"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb8130d"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/marketing-portfolio-project/",
-    "image": "/Marketing-Website-Design-project-Cover.png",
-    "title": "Marketing Portfolio Project",
-    "dis": "I design impactful portfolios specifically tailored for TikTok marketing experts. These portfolios showcase expertise through dedicated sections like \"Home,\" \"Case Studies,\" and \"Contact Us,\" while a strategic popup captures leads. Each page seamlessly blends captivating visuals, clear messaging, and a user-friendly layout, making a strong impression on potential clients.",
-    "tags_content_1": "Figma",
-    "project_url": "https://www.figma.com/community/file/1350008747324546739",
-    "slug": "marketing-portfolio-project"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb8130e"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/single-pager-portfolio-project/",
-    "image": "/Single-pager-protfolio-project-cover.png",
-    "title": "Single Pager Portfolio Project",
-    "dis": "I craft impactful single-page portfolios that showcase your work in a unique and engaging way. These streamlined experiences seamlessly blend captivating visuals, strategic content, and clear calls to action, leaving a lasting impression on potential clients.",
-    "tags_content_1": "Figma",
-    "project_url": "https://www.figma.com/community/file/1350043786335993568",
-    "slug": "single-pager-portfolio-project"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb8130f"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/restore-humanity/",
-    "image": "/projects1.png",
-    "title": "Restore Humanity",
-    "dis": "Delivered B2C success through a freshly built website by merging creative design, lead-focused forms, and Figma illustrations, all crafted from the ground up.",
-    "tags_content_1": "Figma",
-    "tags_content_2": "Illustration",
-    "project_url": "https://jaspinder-singh.com/wp-content/uploads/2024/02/project-restore-humanity.pdf",
-    "slug": "restore-humanity"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb81310"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/chatbot-for-leads/",
-    "image": "/landing-bot.jpg",
-    "title": "Chatbot for Leads",
-    "dis": "I ditched a boring static landing page by introducing a chatbot in the landing page for more personalized experience. It gathers valuable info during conversation, and converts visitors into leads with targeted offers. It's a lead gen machine and a window into my audience's needs - all in one!",
-    "tags_content_1": "JavaScript",
-    "project_url": "https://github.com/JaspinderSinghMudhar/Chatbot",
-    "slug": "chatbot-for-leads"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb81311"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/user-journey-tracking/",
-    "image": "/User-Journey-Tracking.png",
-    "title": "User Journey Tracking",
-    "dis": "I built a JavaScript code that tracks website visitors and captures their information when they submit a lead form. This lets me see how users interact with the site and understand which visitors convert into leads, providing valuable insights for marketing efforts.",
-    "tags_content_1": "JavaScript",
-    "project_url": "https://github.com/JaspinderSinghMudhar/Web-Devloper-for-Beginner/blob/main/Perfect%20JS/Journey-tracker.js",
-    "slug": "user-journey-tracking"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb81312"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/certificate-generation-tool/",
-    "image": "/Certificate-Generation-tool.png",
-    "title": "Certificate Generation tool",
-    "dis": "I developed a Python script to automate certificate generation for the marketing team. This eliminated the need for expensive external tools and significantly reduced manual workload. All it needs is Uploading a recipient list and certificate draft and it automates certificate generation with personalized names.",
-    "tags_content_1": "Python",
-    "project_url": "https://github.com/JaspinderSinghMudhar/certificate_writer",
-    "slug": "certificate-generation-tool"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb81313"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/remotemax/",
-    "image": "/projects2.png",
-    "title": "RemoteMAX",
-    "dis": "Unleashed B2B excellence with a dynamic website from scratch by blending  innovative design, lead-capturing forms, and Figma illustrations.",
-    "tags_content_1": "WordPress",
-    "tags_content_2": "Figma",
-    "tags_content_3": "Illustrations",
-    "project_url": "https://jaspinder-singh.com/wp-content/uploads/2024/02/RemoteMAX.pdf",
-    "slug": "remotemax"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb81314"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/pids-landing-page/",
-    "image": "/PIDS-thumb.png",
-    "title": "PIDS Landing Page Project",
-    "dis": "A project centered around a PIDS landing page project for a Cloud-based Perimeter Intrusion Detection System. The primary emphasis was on crafting a landing page that equally highlights the visual elements.",
-    "tags_content_1": "WordPress",
-    "tags_content_2": "Figma",
-    "tags_content_3": "Owl-Carousel",
-    "project_url": "https://jaspinder-singh.com/wp-content/uploads/2024/02/PIDS.pdf",
-    "slug": "pids-landing-page"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb81315"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/bfsi-landing-page-project/",
-    "image": "/bfsi.png",
-    "title": "BFSI Landing Page Project",
-    "dis": "In the BFSI landing page project, I crafted a dynamic website from scratch for B2B communication. By merging innovative design, lead-capturing forms, and Figma illustrations, the goal was to showcase the delivered value proposition for the BFSI industry.",
-    "tags_content_1": "WordPress",
-    "tags_content_2": "Figma",
-    "tags_content_3": "Owl-Carousel",
-    "project_url": "https://jaspinder-singh.com/wp-content/uploads/2024/02/bfsi-landing-page.pdf",
-    "slug": "bfsi-landing-page-project"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb81316"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/warehouse-landing-page-project/",
-    "image": "/warehouse-thumb.png",
-    "title": "Warehouse Landing Page Project",
-    "dis": "The Warehouse Landing Page Project aimed to boost lead generation through a mix of embedded videos, social proofs, sliders, widgets, infographics, and user-friendly lead-capturing forms.",
-    "tags_content_1": "WordPress",
-    "tags_content_2": "Owl-Carousel",
-    "tags_content_3": "Figma",
-    "project_url": "https://jaspinder-singh.com/wp-content/uploads/2024/02/warehouse.pdf",
-    "slug": "warehouse-landing-page-project"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb81317"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/ip-camera-to-cloud-landing-page-project/",
-    "image": "/IP-to-Cloud-thumb.png",
-    "title": "IP Camera to Cloud Landing Page Project",
-    "dis": "Built from the ground up, this IP Camera landing page uses a captivating mix of lead forms, Figma illustrations, and embedded videos to create a seamless and informative user experience.",
-    "tags_content_1": "WordPress",
-    "tags_content_2": "Figma",
-    "project_url": "https://jaspinder-singh.com/wp-content/uploads/2024/02/IP-to-Cloud.pdf",
-    "slug": "ip-camera-to-cloud-landing-page-project"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb81318"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/cloud-surveillance-landing-page-project/",
-    "image": "/Cloud-sur-thumb.png",
-    "title": "Cloud surveillance Landing Page Project",
-    "dis": "This cloud surveillance landing page, meticulously crafted from the ground up, utilizes intuitive lead capture forms, compelling Figma illustrations, and strategic video integration to foster a seamless and informative user experience.",
-    "tags_content_1": "WordPress",
-    "tags_content_2": "JavaScript",
-    "tags_content_3": "Figma",
-    "project_url": "https://jaspinder-singh.com/wp-content/uploads/2024/02/Cloud-sur.pdf",
-    "slug": "cloud-surveillance-landing-page-project"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb81319"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/manufacturing-landing-page-project/",
-    "image": "/manufacturing-thumb.png",
-    "title": "Manufacturing Landing Page Project",
-    "dis": "I design high-converting manufacturing landing pages that target specific customer needs. These pages utilize clear value propositions, compelling visuals, and strategic CTAs (calls to action) to capture leads and nurture them into qualified prospects.",
-    "tags_content_1": "Owl-Carousel",
-    "tags_content_2": "WordPress",
-    "tags_content_3": "Figma",
-    "tags_content_4": "Animations",
-    "project_url": "https://jaspinder-singh.com/wp-content/uploads/2024/02/manufacturing.pdf",
-    "slug": "manufacturing-landing-page-project"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb8131a"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/remote-monitoring-landing-page-project/",
-    "image": "/remote-thumb.png",
-    "title": "Remote Monitoring Landing Page Project",
-    "dis": "Laser-focused on specific remote monitoring needs, I design high-converting landing pages leveraging clear value propositions, captivating visuals, and strategic CTAs to capture high-intent leads.",
-    "tags_content_1": "wordPress",
-    "tags_content_2": "Figma",
-    "tags_content_3": "Owl-Carousel",
-    "project_url": "https://jaspinder-singh.com/wp-content/uploads/2024/02/remote.pdf",
-    "slug": "remote-monitoring-landing-page-project"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb8131b"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/career-page-project/",
-    "image": "/Igzy-thumb.png",
-    "title": "Career Page Project",
-    "dis": "I craft compelling career pages that showcase company culture and attract top talent. These pages highlight mission, benefits, and open positions, all designed to give candidates a clear picture of why this is a great place to work.",
-    "tags_content_1": "WordPress",
-    "tags_content_2": "PHP",
-    "tags_content_3": "JQuery",
-    "tags_content_4": "Figma",
-    "project_url": "https://jaspinder-singh.com/wp-content/uploads/2024/02/Igzy.pdf",
-    "slug": "career-page-project"
-},
-{
-    "_id": {
-        "$oid": "6aca64b67fa194c83bb8131c"
-    },
-    "web_scraper_start_url": "https://jaspinder-singh.com/js-projects/ip-camera-landing-page-project/",
-    "image": "/IP-CAM-thumb.png",
-    "title": "IP Camera Landing Page Project",
-    "dis": "IP Camera Landing Page project meticulously developed from scratch, it seamlessly blends lead-capturing forms, Figma illustrations, embedded videos, widgets, and grouped content for an enriched user experience.",
-    "tags_content_1": "WordPress",
-    "tags_content_2": "JavaScript",
-    "tags_content_3": "Figma",
-    "project_url": "https://jaspinder-singh.com/wp-content/uploads/2024/02/IP-CAM.pdf",
-    "slug": "ip-camera-landing-page-project"
-}]
+const mapProject = project => {
+    const imageName = project.image
+        .replace(/^https:\/\/jaspinder-singh\.com\/wp-content\/uploads\/\d{4}\/\d{2}\//, '')
+        .replace(/^\/+/, '');
 
-// const new_mapped_items = items_new.map((e) => {
-//     return {
-//         image: 'projects' + e.image,
-//         link: e.project_url,
-//         title: e.title,
-//         description: e.dis
-//     }
-// })
+    return {
+        image: `/projects/${imageName}`,
+        link: project.project_url,
+        title: project.title,
+        description: project.dis
+    };
+};
 
 
 function Projects() {
-    let [data, setData] = useState([]);
-    let [newMappedItems, setNewMappedItems] = useState([]);
+    const [newMappedItems, setNewMappedItems] = useState(() => items_new.map(mapProject));
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/projects`)
-            .then(response => {setData(response.data);})
+        const apiUrl = import.meta.env.VITE_API_URL || '';
+        axios.get(`${apiUrl}/api/projects`)
+            .then(response => {
+                if (!Array.isArray(response.data)) {
+                    console.error('Expected the projects API to return an array.', response.data);
+                    return;
+                }
+
+                setNewMappedItems(response.data.map(mapProject));
+            })
             .catch(error => {console.error(error)})
     }, [])
-
-    useEffect(() => {
-        setNewMappedItems(data.map(e => {
-            const imageName = e.image
-                .replace(/^https:\/\/jaspinder-singh\.com\/wp-content\/uploads\/\d{4}\/\d{2}\//, '')
-                .replace(/^\/+/, '');
-            return {
-                image: `/projects/${imageName}`,
-                link: e.project_url,
-                title: e.title,
-                description: e.dis
-            };
-        }))
-    }, [data]);
 
     return (
         <div style={{ height: '100vh', position: 'relative' }}>

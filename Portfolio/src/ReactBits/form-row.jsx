@@ -1,11 +1,17 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import LaserFlow from '../components/LaserFlow';
+import Stepper, { Step } from '../components/Stepper';
+import axios from 'axios';
 
 export default function Form() {
   const cardRef = useRef(null);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [massage, setMassage] = useState('');
 
   return (
-    <div style={{ position: 'relative', height: '600px', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}>
       <LaserFlow
         surfaceRef={cardRef}
         beamPosition={0.5}
@@ -19,30 +25,106 @@ export default function Form() {
         revealImage="/your-ui.png"
         revealRadius={350}
         revealOpacity={0.6}
-  beamWidth={0.75}
-  streaks={0.85}
-  dots={1}
-  pulse={0.8}
-  speed={1.65}
-  seed={4}
-  mouseInteraction
-  intro
-/>
-
-      <div
-        ref={cardRef}
-        style={{
-          position: 'absolute',
-          left: '18%',
-          right: '28%',
-          top: '52%',
-          bottom: '-24px',
-          borderRadius: '14px',
-          background: '#0b0b0d'
-        }}
-      >
-        <h1>Hellow Wiold</h1>
-      </div>
+        beamWidth={0.75}
+        streaks={0.85}
+        dots={1}
+        pulse={0.8}
+        speed={1.65}
+        seed={4}
+        mouseInteraction
+        intro
+      />
+      <form id="contact-form" ref={cardRef} className='form-card' onSubmit={(e) => { e.preventDefault() }}>
+        <Stepper
+          initialStep={1}
+          onStepChange={step => console.log(step)}
+          onFinalStepCompleted={() => {
+            axios.post(`${import.meta.env.VITE_API_URL}/api/form`, {
+              Name: name,
+              Email: email,
+              Phone: phone,
+              Massage: massage
+            })
+            setName('');
+            setEmail('');
+            setPhone('');
+            setMassage('');
+          }}
+          backButtonText="Back"
+          nextButtonText="Continue"
+        >
+          <Step title="Welcome">
+            <h3>Welcome aboard</h3>
+            <p>Fill the form And we will contant you right away.</p>
+          </Step>
+          <Step title="Name">
+            <h3>Enter Your Name</h3>
+            <input required type="text" name="Name" id="name" placeholder="Your name"
+              indicator="dots"
+              orientation="horizontal"
+              transition="fade"
+              width={400}
+              radius={24}
+              frame
+              linear={false}
+              disableStepIndicators={false}
+              showFooter
+              onChange={(e) => { setName(e.target.value) }}
+              completeButtonText="Next"
+            />
+          </Step>
+          <Step required title="Email">
+            <h3>Enter Your Email</h3>
+            <input type="email" name="Email" id="Email" placeholder="Your Email"
+              indicator="dots"
+              orientation="horizontal"
+              transition="fade"
+              width={400}
+              radius={24}
+              frame
+              linear={false}
+              disableStepIndicators={false}
+              showFooter
+              onChange={(e) => { setEmail(e.target.value) }}
+              completeButtonText="Next"
+            />
+          </Step>
+          <Step title="Phone">
+            <h3>Enter Your Phone</h3>
+            <input type="Phone" name="Phone" id="Phone" placeholder="Your Phone"
+              indicator="dots"
+              orientation="horizontal"
+              transition="fade"
+              width={400}
+              radius={24}
+              frame
+              linear={false}
+              disableStepIndicators={false}
+              showFooter
+              onChange={(e) => { setPhone(e.target.value) }}
+              minLength={8}
+              maxLength={12}
+              completeButtonText="Next"
+            />
+          </Step>
+          <Step title="Massage">
+            <h3>Enter Your Massage</h3>
+            <textarea name="Massege" id="Massege" placeholder="Your Massage"
+              indicator="dots"
+              orientation="horizontal"
+              transition="fade"
+              width={400}
+              radius={24}
+              frame
+              linear={false}
+              disableStepIndicators={false}
+              showFooter
+              onChange={(e) => { setMassage(e.target.value) }}
+              completeButtonText="Next"
+            />
+          </Step>
+        </Stepper>
+      </form>
     </div>
   );
 }

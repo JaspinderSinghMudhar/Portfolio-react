@@ -67,9 +67,9 @@ const imageLogos = [
 
 const menuItems = [
   { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
-  { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
-  { label: 'Projects', ariaLabel: 'View our Projects', link: '/Projects' },
-  { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
+  { label: 'About', ariaLabel: 'Learn about us', link: '/#about' },
+  { label: 'Projects', ariaLabel: 'View our Projects', link: '/#projects' },
+  { label: 'Contact', ariaLabel: 'Get in touch', link: '/#contact' }
 ];
 
 const socialItems = [
@@ -182,7 +182,7 @@ function Home() {
           muted={1}
         />
       </div>
-      <div className='about container flex justify-around mt-[40px]' style={{ width: '100%', height: '600px', position: 'relative' }}>
+      <div id='about' className='about container flex justify-around mt-[40px]' style={{ width: '100%', height: '600px', position: 'relative' }}>
         <div className="about-image w-[50%]">
           <HalftoneReveal
             src="/me.webp"
@@ -375,10 +375,10 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="projects">
+      <div id='projects' className="projects">
         <Projects />
       </div>
-      <div className="forms">
+      <div id='contact' className="forms">
        <Form/>
       </div >
     </>
