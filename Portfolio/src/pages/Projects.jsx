@@ -1,6 +1,7 @@
 import InfiniteMenu from '../components/InfiniteMenu';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../lib/api';
 
 const mapProject = project => {
     const imageName = project.image
@@ -20,8 +21,7 @@ function Projects() {
     const [newMappedItems, setNewMappedItems] = useState([]);
 
     useEffect(() => {
-        const apiUrl = import.meta.env.VITE_API_URL || '';
-        axios.get(`${apiUrl}/api/projects`)
+        axios.get(`${API_BASE_URL}/api/projects`)
             .then(response => {
                 if (!Array.isArray(response.data)) {
                     console.error('Expected the projects API to return an array.', response.data);
