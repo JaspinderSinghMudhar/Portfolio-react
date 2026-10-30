@@ -17,7 +17,7 @@ const mapProject = project => {
 
 
 function Projects() {
-    const [newMappedItems, setNewMappedItems] = useState(() => items_new.map(mapProject));
+    const [newMappedItems, setNewMappedItems] = useState([]);
 
     useEffect(() => {
         const apiUrl = import.meta.env.VITE_API_URL || '';

@@ -37,7 +37,7 @@ export default function Form() {
       <form id="contact-form" ref={cardRef} className='form-card' onSubmit={(e) => { e.preventDefault() }}>
         <Stepper
           initialStep={1}
-          onStepChange={step => console.log(step)}
+          // onStepChange={!setName=='' && console.log('Name is Empty')}
           onFinalStepCompleted={() => {
             axios.post(`${import.meta.env.VITE_API_URL}/api/form`, {
               Name: name,
@@ -54,12 +54,12 @@ export default function Form() {
           nextButtonText="Continue"
         >
           <Step title="Welcome">
-            <h3>Welcome aboard</h3>
-            <p>Fill the form And we will contant you right away.</p>
+            <h3 className='text-center'>Contact Me</h3>
+            <p className='text-center'>Fill the form And we will contant you right away.</p>
           </Step>
           <Step title="Name">
             <h3>Enter Your Name</h3>
-            <input required type="text" name="Name" id="name" placeholder="Your name"
+            <input className='form-input' required type="text" name="Name" id="name" placeholder="Your name"
               indicator="dots"
               orientation="horizontal"
               transition="fade"
@@ -74,8 +74,8 @@ export default function Form() {
             />
           </Step>
           <Step required title="Email">
-            <h3>Enter Your Email</h3>
-            <input type="email" name="Email" id="Email" placeholder="Your Email"
+            <h3 className='text-center'>Enter Your Email</h3>
+            <input className='form-input' type="email" name="Email" id="Email" placeholder="Your Email"
               indicator="dots"
               orientation="horizontal"
               transition="fade"
@@ -90,15 +90,15 @@ export default function Form() {
             />
           </Step>
           <Step title="Phone">
-            <h3>Enter Your Phone</h3>
-            <input type="Phone" name="Phone" id="Phone" placeholder="Your Phone"
+            <h3 className='text-center'>Enter Your Phone</h3>
+            <input className='form-input' type="Phone" name="Phone" id="Phone" placeholder="Your Phone"
               indicator="dots"
               orientation="horizontal"
               transition="fade"
               width={400}
               radius={24}
               frame
-              linear={false}
+              linear={true}
               disableStepIndicators={false}
               showFooter
               onChange={(e) => { setPhone(e.target.value) }}
@@ -108,8 +108,8 @@ export default function Form() {
             />
           </Step>
           <Step title="Massage">
-            <h3>Enter Your Massage</h3>
-            <textarea name="Massege" id="Massege" placeholder="Your Massage"
+            <h3 className='text-center'>Enter Your Massage</h3>
+            <textarea className='form-input' name="Massege" id="Massege" placeholder="Your Massage"
               indicator="dots"
               orientation="horizontal"
               transition="fade"

@@ -22,7 +22,7 @@ const THEMES = {
     '--stepper-muted': 'rgba(244, 244, 245, 0.55)',
     '--stepper-faint': 'rgba(255, 255, 255, 0.22)',
     '--stepper-ring': 'rgba(244, 244, 245, 0.3)',
-    '--stepper-solid': '#f4f4f5',
+    '--stepper-solid': '#2bc20e',
     '--stepper-solid-ink': '#18181b',
     '--stepper-hover': 'brightness(1.12)',
     '--stepper-hover-fill': 'rgba(255, 255, 255, 0.04)',

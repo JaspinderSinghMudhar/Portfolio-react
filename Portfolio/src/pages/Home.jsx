@@ -1,4 +1,3 @@
-import React from 'react'
 import StaggeredMenu from '../ReactBits/StaggeredMenu';
 import { FaSquareGithub } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
@@ -66,24 +65,26 @@ const imageLogos = [
 
 
 const menuItems = [
-  { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
+  { label: 'Home', ariaLabel: 'Go to home page', link: '/#' },
   { label: 'About', ariaLabel: 'Learn about us', link: '/#about' },
+  { label: 'Expirence', ariaLabel: 'Where I worked before', link: '/#expirence' },
   { label: 'Projects', ariaLabel: 'View our Projects', link: '/#projects' },
   { label: 'Contact', ariaLabel: 'Get in touch', link: '/#contact' }
 ];
 
 const socialItems = [
-  { label: <FaSquareGithub />, link: 'https://github.com/JaspinderSinghMudhar' },
-  { label: <FaLinkedin />, link: 'https://www.linkedin.com/in/jaspinder-singh-5802a1262/' },
-  { label: <RiFigmaFill />, link: 'https://www.figma.com/@jaspinder' },
-  { label: <RiFiverrFill />, link: 'https://www.fiverr.com/jaspindermudhar/design-and-develop-your-website-from-ui-to-fully-customized-wordpress-theme' },
-  { label: <RiUpworkFill />, link: 'https://www.upwork.com/freelancers/~01a40efec16d8ea22c?mp_source=share' }
+  { label: <FaSquareGithub />, accessibleLabel: 'GitHub', link: 'https://github.com/JaspinderSinghMudhar' },
+  { label: <FaLinkedin />, accessibleLabel: 'LinkedIn', link: 'https://www.linkedin.com/in/jaspinder-singh-5802a1262/' },
+  { label: <RiFigmaFill />, accessibleLabel: 'Figma', link: 'https://www.figma.com/@jaspinder' },
+  { label: <RiFiverrFill />, accessibleLabel: 'Fiverr', link: 'https://www.fiverr.com/jaspindermudhar/design-and-develop-your-website-from-ui-to-fully-customized-wordpress-theme' },
+  { label: <RiUpworkFill />, accessibleLabel: 'Upwork', link: 'https://www.upwork.com/freelancers/~01a40efec16d8ea22c?mp_source=share' }
 ];
 
 function Home() {
   return (
     <>
       <CursorGrid
+        className="hero-section"
         cellSize={50}
         color="#2bc20e"
         highlight="area"
@@ -146,7 +147,7 @@ function Home() {
         </div>
       </CursorGrid>
       <div style={{ position: 'relative', overflow: 'hidden', background: '#000', color: '#fff', marginTop: '-30px' }}>
-        <div className="tec-logo flex justify-center w-[100%] gap-[20px]">
+        <div className="tec-logo flex justify-center w-[100%] gap-[20px] flex-wrap">
           <h3 className='uppercase'>Technologies I</h3><h3><RotatingText
             texts={['WORK\'s WITH', 'PLAY WITH', 'HAVE FUN WITH']}
             effect="drop"
@@ -155,7 +156,7 @@ function Home() {
             highlightColor="#2bc20e"
             staggerFrom="first"
             staggerDuration={0.04}
-            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 sm:pb-1"
             rotationInterval={2000}
             splitBy="characters"
             blur={0}
@@ -182,8 +183,8 @@ function Home() {
           muted={1}
         />
       </div>
-      <div id='about' className='about container flex justify-around mt-[40px]' style={{ width: '100%', height: '600px', position: 'relative' }}>
-        <div className="about-image w-[50%]">
+      <div id='about' className='about container sm:flex justify-around mt-[40px] flex-wrap' style={{ width: '100%', height: '600px', position: 'relative' }}>
+        <div className="about-image sm:w-[50%]">
           <HalftoneReveal
             src="/me.webp"
             mode="mono"
@@ -210,7 +211,7 @@ function Home() {
             intro
           />
         </div>
-        <div className='about-info bg-black w-[50%] text-white'>
+        <div className='about-info bg-black sm:w-[50%] text-white'>
           <h2 className='uppercase text-primary!'>About</h2>
           <ScrollReveal
             highlightColor="#2bc20e"
@@ -260,7 +261,7 @@ function Home() {
         // crossColor="#ffffff"
         />
       </div>
-      <div className="expirence relative mt-[-280px] py-[120px]">
+      <div id='expirence' className="expirence relative sm:mt-[-280px] sm:py-[120px]">
         <div className='bg-element-cards'>
           <MagnetLines
             lineColor="#4a4a4a"
@@ -289,8 +290,8 @@ function Home() {
           />
         </div>
         <h2 className='text-primary text-center uppercase'>Expirence</h2>
-        <div className="exp-cards flex justify-around gap-4 p-4 m-4">
-          <div className="exp-1 w-[45%]">
+        <div className="exp-cards flex flex-wrap justify-around gap-4 p-4 m-4">
+          <div className="exp-1 sm:w-[45%]">
             <SpotlightCard
               theme="dark"
               spotlightColor="#2bc20e"
@@ -332,7 +333,7 @@ function Home() {
               </div>
             </SpotlightCard>
           </div>
-          <div className="exp-2 w-[45%]">
+          <div className="exp-2 sm:w-[45%]">
             <SpotlightCard
               theme="dark"
               spotlightColor="#2bc20e"
@@ -381,6 +382,38 @@ function Home() {
       <div id='contact' className="forms">
        <Form/>
       </div >
+      <footer className="site-footer">
+        <div className="site-footer-main">
+          <a className="site-footer-brand" href="/#" aria-label="Jaspinder Singh, home">
+            <span>JASPINDER <span className="text-primary">SINGH</span></span>
+            <span className="site-footer-tagline">Web developer & designer</span>
+          </a>
+          <nav className="site-footer-nav" aria-label="Footer navigation">
+            <a href="/#about">About</a>
+            <a href="/#projects">Projects</a>
+            <a href="/#expirence">Expirence</a>
+            <a href="/#contact">Contact</a>
+          </nav>
+          <div className="site-footer-socials" aria-label="Social profiles">
+            {socialItems.map(item => (
+              <a
+                key={item.accessibleLabel}
+                href={item.link}
+                aria-label={item.accessibleLabel}
+                title={item.accessibleLabel}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+        <div className="site-footer-bottom">
+          <span>© {new Date().getFullYear()} Jaspinder Singh</span>
+          <a href="/#" aria-label="Back to top">Back to top ↑</a>
+        </div>
+      </footer>
     </>
   )
 }
