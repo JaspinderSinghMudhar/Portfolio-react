@@ -32,6 +32,7 @@ function Projects() {
                 }
 
                 setNewMappedItems(response.data.map(mapProject));
+                console.log('Projects loaded successfully:', response.data);
             })
             .catch(error => {
                 console.error('Failed to load projects from the API:', error);
