@@ -20,7 +20,7 @@ function Projects() {
     const [newMappedItems, setNewMappedItems] = useState([]);
 
     useEffect(() => {
-        const apiUrl = import.meta.env.VITE_API_URL || '';
+        const apiUrl = 'https://portfolio-react-cym6.onrender.com/';
         axios.get(`${apiUrl}/api/projects`)
             .then(response => {
                 if (!Array.isArray(response.data)) {
