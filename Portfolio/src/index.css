@@ -314,6 +314,10 @@ body:has(.staggered-menu-panel[aria-hidden="false"]) {
   h6 {
     @apply text-sm;
   }
+  .hero-text canvas{
+  width: 90%;
+  margin: auto;
+}
 
   #about {
     height: auto !important;
