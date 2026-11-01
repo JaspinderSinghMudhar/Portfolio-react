@@ -135,7 +135,7 @@ body:has(.staggered-menu-panel[aria-hidden="false"]) {
 }
 
 .about-info span {
-  @apply text-2xl uppercase m-[1px];
+  @apply text-xl uppercase m-[1px];
 }
 
 .cross-tape-text {

@@ -222,14 +222,13 @@ function Home() {
             duration={0.01}
             smoothing={0.5}
             baseOpacity={0.3}
-            baseRotation={10}
+            // baseRotation={10}
             baseOffset={11}
             enableBlur
             blurStrength={4}
           >
-            When does a man die? When he is hit by a bullet? No! When he suffers a disease?
-            No! When he ate a soup made out of a poisonous mushroom?
-            No! A man dies when he is forgotten!
+            Grateful to turn my passion into a profession, I thrive on tackling new challenges through code. Whether it’s a straightforward solution or a more intricate one, the journey of problem-solving in the world of web development is always dynamic and never dull.
+I’m a web dev problem-solver by day and a passionate coder by night. My work spans UI/UX design, front-end development, WordPress theme building, and analytics-driven improvements.
           </ScrollReveal>
         </div>
       </div>
