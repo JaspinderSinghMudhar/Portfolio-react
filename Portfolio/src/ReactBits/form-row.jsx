@@ -123,6 +123,10 @@ export default function Form() {
               completeButtonText="Next"
             />
           </Step>
+          <Step title="Thank You">
+            <h3 className='text-center'>Thanks You</h3>
+            <p className='text-center'>Thanks for Contacting Us will contact you as soon as possible.</p>
+          </Step>
         </Stepper>
       </form>
     </div>

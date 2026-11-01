@@ -178,7 +178,7 @@ body:has(.staggered-menu-panel[aria-hidden="false"]) {
 .form-card {
   background-color: transparent !important;
   position: absolute;
-  width: 600px;
+  min-width: 768px;
   border-radius: 24px;
   top: 100%;
   left: 50%;
