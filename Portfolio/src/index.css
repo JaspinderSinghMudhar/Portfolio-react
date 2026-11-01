@@ -342,6 +342,10 @@ body:has(.staggered-menu-panel[aria-hidden="false"]) {
     padding-top: 0px;
   }
 
+  .projects-h{
+    height: 90vh !important;
+  }
+
   .form-card {
     width: 90%;
     min-width: 90% !important;

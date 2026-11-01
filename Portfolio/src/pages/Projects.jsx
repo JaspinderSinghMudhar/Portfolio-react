@@ -39,7 +39,7 @@ function Projects() {
     }, [])
 
     return (
-        <div style={{ height: '100vh', position: 'relative' }}>
+        <div className="projects-h" style={{ height: '100vh', position: 'relative' }}>
             <InfiniteMenu
                 items={newMappedItems}
                 count={200}
