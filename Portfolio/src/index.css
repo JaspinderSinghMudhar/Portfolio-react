@@ -279,7 +279,7 @@ body:has(.staggered-menu-panel[aria-hidden="false"]) {
 
 
 
-@media (max-width:769px) {
+@media (max-width:767px) {
   h1 {
     @apply text-3xl;
   }
