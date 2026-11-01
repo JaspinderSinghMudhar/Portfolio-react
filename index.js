@@ -39,6 +39,10 @@ app.post('/api/form', async (req, res) => {
   res.send('Form Submited')
 })
 
+app.use('/api', (req, res) => {
+  res.status(404).json({ error: 'API endpoint not found' });
+});
+
 // ONLY serve the static React build files if running in Production
 if (process.env.NODE_ENV === 'production') {
   const distPath = path.join(__dirname, 'Portfolio', 'dist');

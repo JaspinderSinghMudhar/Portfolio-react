@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import LaserFlow from '../components/LaserFlow';
 import Stepper, { Step } from '../components/Stepper';
-import axios from 'axios';
+import api from '../lib/api';
 
 export default function Form() {
   const cardRef = useRef(null);
@@ -39,16 +39,21 @@ export default function Form() {
           initialStep={1}
           // onStepChange={!setName=='' && console.log('Name is Empty')}
           onFinalStepCompleted={() => {
-            axios.post(`${import.meta.env.VITE_API_URL}/api/form`, {
+            api.post('/api/form', {
               Name: name,
               Email: email,
               Phone: phone,
               Massage: massage
             })
-            setName('');
-            setEmail('');
-            setPhone('');
-            setMassage('');
+              .then(() => {
+                setName('');
+                setEmail('');
+                setPhone('');
+                setMassage('');
+              })
+              .catch(error => {
+                console.error('Failed to submit the contact form:', error);
+              });
           }}
           backButtonText="Back"
           nextButtonText="Continue"

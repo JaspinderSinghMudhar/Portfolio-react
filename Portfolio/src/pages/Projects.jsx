@@ -1,6 +1,6 @@
 import InfiniteMenu from '../components/InfiniteMenu';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../lib/api';
 
 const mapProject = project => {
     const imageName = project.image
@@ -20,17 +20,22 @@ function Projects() {
     const [newMappedItems, setNewMappedItems] = useState([]);
 
     useEffect(() => {
-        const apiUrl = 'https://portfolio-react-cym6.onrender.com/';
-        axios.get(`${apiUrl}/api/projects`)
+        api.get('/api/projects')
             .then(response => {
                 if (!Array.isArray(response.data)) {
-                    console.error('Expected the projects API to return an array.', response.data);
+                    console.error('Expected the projects API to return an array.', {
+                        status: response.status,
+                        contentType: response.headers['content-type'],
+                        url: response.config.url,
+                    });
                     return;
                 }
 
                 setNewMappedItems(response.data.map(mapProject));
             })
-            .catch(error => {console.error(error)})
+            .catch(error => {
+                console.error('Failed to load projects from the API:', error);
+            })
     }, [])
 
     return (
