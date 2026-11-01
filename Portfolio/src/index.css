@@ -56,31 +56,32 @@ h6 {
 
 .header-menu {
   overflow: hidden;
-  z-index: 1;
+  z-index: 3;
   position: absolute;
   inset: 0;
 }
 
-.staggered-menu-header{
+.staggered-menu-header {
   position: fixed !important;
   top: 0px !important;
+  z-index: 9999 !important;
 }
 
-.header-menu .sm-logo{
+.header-menu .sm-logo {
   background-color: #0000008c;
   @apply backdrop-blur-xs p-1 rounded-2xl
 }
 
-.header-menu .sm-toggle{
+.header-menu .sm-toggle {
   background-color: #0000008c !important;
   @apply backdrop-blur-xs p-3 rounded-2xl
 }
 
-.sm-toggle-line{
+.sm-toggle-line {
   color: #fff !important;
 }
 
-.staggered-menu-panel{
+.staggered-menu-panel {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -122,7 +123,7 @@ body:has(.staggered-menu-panel[aria-hidden="false"]) {
 }
 
 .about {
-  z-index: 0 !important;
+  z-index: 2 !important;
 }
 
 
@@ -138,13 +139,19 @@ body:has(.staggered-menu-panel[aria-hidden="false"]) {
 }
 
 .cross-tape-text {
-  margin-top: -270px;
-  z-index: 9999;
+  /* margin-top: -270px; */
+  margin-top: -18%;
+  margin-bottom: 4%;
+  /* margin-bottom: -14%; */
+  /* z-index: 9999; */
+  /* z-index: 9999; */
+  z-index: 1;
 }
 
 
 .expirence {
   isolation: isolate;
+  z-index: 0;
 }
 
 .bg-element-cards {
@@ -174,6 +181,10 @@ body:has(.staggered-menu-panel[aria-hidden="false"]) {
 /* #projects{
   background-color: #090909;
 } */
+
+#projects h2, #projects p{
+ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
 
 .form-card {
   background-color: transparent !important;
@@ -279,7 +290,7 @@ body:has(.staggered-menu-panel[aria-hidden="false"]) {
 
 
 
-@media (max-width:767px) {
+@media (max-width:1024px) {
   h1 {
     @apply text-3xl;
   }
@@ -308,17 +319,28 @@ body:has(.staggered-menu-panel[aria-hidden="false"]) {
     height: auto !important;
   }
 
+  .about {
+    z-index: 0 !important;
+  }
+
   .about-image {
     height: 70vh;
     margin-top: -50px;
   }
 
   .cross-tape-text {
-    margin-top: 0px;
+    margin-top: -10%;
+    margin-bottom: -10%;
+  }
+
+
+  .expirence {
+    padding-top: 0px;
   }
 
   .form-card {
     width: 90%;
+    min-width: 90% !important;
   }
 
   .form-card>div {

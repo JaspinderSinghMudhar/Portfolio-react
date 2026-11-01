@@ -156,7 +156,7 @@ function Home() {
             highlightColor="#2bc20e"
             staggerFrom="first"
             staggerDuration={0.04}
-            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 sm:pb-1"
+            splitLevelClassName="overflow-hidden pb-0.5 lg:pb-1 lg:pb-1"
             rotationInterval={2000}
             splitBy="characters"
             blur={0}
@@ -183,8 +183,8 @@ function Home() {
           muted={1}
         />
       </div>
-      <div id='about' className='about container sm:flex justify-around mt-[40px] flex-wrap' style={{ width: '100%', height: '600px', position: 'relative' }}>
-        <div className="about-image sm:w-[50%]">
+      <div id='about' className='about container lg:flex justify-around mt-[40px] flex-wrap' style={{ width: '100%', height: '600px', position: 'relative' }}>
+        <div className="about-image lg:w-[50%]">
           <HalftoneReveal
             src="/me.webp"
             mode="mono"
@@ -211,7 +211,7 @@ function Home() {
             intro
           />
         </div>
-        <div className='about-info bg-black sm:w-[50%] text-white'>
+        <div className='about-info bg-black lg:w-[50%] text-white'>
           <h2 className='uppercase text-primary!'>About</h2>
           <ScrollReveal
             highlightColor="#2bc20e"
@@ -261,7 +261,7 @@ function Home() {
         // crossColor="#ffffff"
         />
       </div>
-      <div id='expirence' className="expirence relative sm:mt-[-280px] sm:py-[120px]">
+      <div id='expirence' className="expirence relative lg:mt-[-280px] lg:py-[120px]">
         <div className='bg-element-cards'>
           <MagnetLines
             lineColor="#4a4a4a"
@@ -291,7 +291,7 @@ function Home() {
         </div>
         <h2 className='text-primary text-center uppercase'>Expirence</h2>
         <div className="exp-cards flex flex-wrap justify-around gap-4 p-4 m-4">
-          <div className="exp-1 sm:w-[45%]">
+          <div className="exp-1 lg:w-[45%] w-[90%]">
             <SpotlightCard
               theme="dark"
               spotlightColor="#2bc20e"
@@ -333,7 +333,7 @@ function Home() {
               </div>
             </SpotlightCard>
           </div>
-          <div className="exp-2 sm:w-[45%]">
+          <div className="exp-2 lg:w-[45%] w-[90%]">
             <SpotlightCard
               theme="dark"
               spotlightColor="#2bc20e"
